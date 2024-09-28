@@ -19,18 +19,20 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    formatter.${system} = pkgs.alejandra;
 
     homeConfigurationModules.basic-no-gui = import ./common/home-basic-no-gui.nix;
-    stylixModules.basic = import ./common/stylix.nix;
-
+    stylixModules.no-gui = import ./common/stylix-no-gui.nix;
+    stylixModules.fonts = import ./common/stylix-fonts.nix;
+  in {
+    formatter.${system} = pkgs.alejandra;
+    inherit homeConfigurationModules;
+    inherit stylixModules;
     homeConfigurations."root" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
         stylix.homeManagerModules.stylix
-        ./common/stylix.nix
-        ./common/home-basic-no-gui.nix
+        stylixModules.no-gui
+        homeConfigurationModules.basic-no-gui
         {
           home.username = "root";
           home.homeDirectory = "/root";
