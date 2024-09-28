@@ -6,15 +6,11 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    stylix.url = "github:danth/stylix/release-24.05";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
-    stylix,
     ...
   }: let
     system = "x86_64-linux";
@@ -30,8 +26,6 @@
     homeConfigurations."root" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
-        stylix.homeManagerModules.stylix
-        stylixModules.no-gui
         homeConfigurationModules.basic-no-gui
         {
           home.username = "root";
