@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./home-basic-no-gui.nix
-  ];
-
   home.packages = with pkgs; [
     apptainer # It depends on overlay FSs
     fuse-overlayfs

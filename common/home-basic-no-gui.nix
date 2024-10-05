@@ -1,4 +1,4 @@
-{
+{helix, ...}: {
   lib,
   pkgs,
   ...
@@ -72,6 +72,7 @@
   };
   programs.helix = {
     enable = true;
+    package = helix.packages.${pkgs.system}.default;
     defaultEditor = true;
     settings = {
       editor = {
