@@ -17,6 +17,7 @@
     pkgs = nixpkgs.legacyPackages.${system};
 
     homeConfigurationModules.basic-no-gui = import ./common/home-basic-no-gui.nix;
+    homeConfigurationModules.main = import ./common/home-main.nix;
     stylixModules.no-gui = import ./common/stylix-no-gui.nix;
     stylixModules.fonts = import ./common/stylix-fonts.nix;
   in {
