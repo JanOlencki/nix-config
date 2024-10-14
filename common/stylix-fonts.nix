@@ -12,7 +12,9 @@
 
     monospace = {
       name = "JetBrainsMono Nerd Font";
-      package = pkgs.nerdfonts;
+      package = pkgs.nerdfonts.override {
+        fonts = ["JetBrainsMono"];
+      };
     };
 
     sizes = {
