@@ -29,6 +29,7 @@
       ".helix"
     ];
     extraConfig = {
+      gpg.format = "ssh";
       core.editor = "${pkgs.helix}/bin/hx";
       commit.verbose = true;
       pager.show = "${pkgs.bat}/bin/bat";
