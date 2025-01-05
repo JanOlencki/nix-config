@@ -89,9 +89,9 @@
         line-number = "relative";
         cursor-shape.insert = "underline";
         auto-pairs = false;
-        file-picker = {
-          hidden = false;
-        };
+        inline-diagnostics.cursor-line = "hint";
+        end-of-line-diagnostics = "warning";
+        inline-diagnostics.other-lines = "error";
       };
     };
     languages = {
