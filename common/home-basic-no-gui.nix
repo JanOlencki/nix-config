@@ -39,6 +39,7 @@
       gpg.format = "ssh";
       core.editor = "${helix.packages.${pkgs.system}.default}/bin/hx";
       commit.verbose = true;
+      commit.gpgsign = true;
       pager.show = "${pkgs.bat}/bin/bat";
       diff.wsErrorHighlight = "all";
       diff.submodule = "log";
