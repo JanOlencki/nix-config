@@ -43,10 +43,21 @@
       "files.autoSave" = "onWindowChange";
     };
   };
-  programs.alacritty = {
+  programs.wezterm = {
     enable = true;
-    settings = {
-      terminal.shell = "fish";
-    };
+    extraConfig = ''
+      return {
+        enable_tab_bar = false,
+        window_close_confirmation = 'NeverPrompt',
+        default_prog = { 'fish', '-l' },
+        enable_scroll_bar = false,
+        window_padding = {
+          left = "1cell",
+          right = "1cell",
+          top = 0,
+          bottom = 0,
+        },
+      }
+    '';
   };
 }
