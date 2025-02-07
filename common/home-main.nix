@@ -50,6 +50,7 @@
         enable_tab_bar = false,
         window_close_confirmation = 'NeverPrompt',
         default_prog = { 'fish', '-l' },
+        mux_enable_ssh_agent = false,
         enable_scroll_bar = false,
         window_padding = {
           left = "1cell",
