@@ -50,6 +50,7 @@
         enable_tab_bar = false,
         window_close_confirmation = 'NeverPrompt',
         default_prog = { 'fish', '-l' },
+        harfbuzz_features = {"calt=0", "clig=0", "liga=0"},
         mux_enable_ssh_agent = false,
         enable_scroll_bar = false,
         window_padding = {
