@@ -154,6 +154,7 @@
         "$git_state"
         "$git_metrics"
         "$git_status"
+        "$container"
         "$nix_shell"
         "$custom"
         "$cmd_duration"
@@ -175,6 +176,7 @@
         truncation_length = 0;
       };
       cmd_duration.format = "[\\[$duration\\]]($style)";
+      container.format = "[\\[$symbol\\]]($style)";
       git_branch = {
         format = "[\\[$symbol$branch\\]]($style)";
         symbol = "";
