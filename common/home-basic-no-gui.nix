@@ -147,17 +147,15 @@
     enable = true;
     settings = {
       format = lib.concatStrings [
-        "$hostname"
         "$directory"
         "$git_branch"
         "$git_commit"
         "$git_state"
         "$git_metrics"
         "$git_status"
-        "$container"
         "$nix_shell"
-        "$custom"
         "$cmd_duration"
+        "$\{custom.hostname\}"
         "$line_break"
         "$jobs"
         "$battery"
@@ -168,6 +166,13 @@
         success_symbol = "[\\$](green)";
         error_symbol = "[\\$](bold red)";
       };
+      custom.hostname = {
+        command = ''echo "$USER@$(hostname -f)"'';
+        symbol = "🌐";
+        format = "[\\[$symbol$output\\]]($style)";
+        style = "bold dimmed green";
+        when = ''test -n "$SSH_CONNECTION" || test -n "$SINGULARITY_NAME" || test -n "$APPTAINER_NAME"'';
+      };
       directory = {
         substitutions = {
           "~/ws/" = "";
@@ -176,7 +181,6 @@
         truncation_length = 0;
       };
       cmd_duration.format = "[\\[$duration\\]]($style)";
-      container.format = "[\\[$symbol\\]]($style)";
       git_branch = {
         format = "[\\[$symbol$branch\\]]($style)";
         symbol = "";
