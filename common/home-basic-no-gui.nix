@@ -124,9 +124,6 @@
   };
   programs.zellij = {
     enable = true;
-    settings = {
-      pane_frames = false;
-    };
   };
   programs.fish = {
     enable = true;
@@ -140,6 +137,9 @@
         date +"%A, %d %B %Y, %r"
         echo "Host: $(domainname -af)"
         echo "User: $USER"
+      '';
+      fish_title = ''
+        echo "$USER@$(hostname -f)"
       '';
     };
   };
@@ -155,7 +155,6 @@
         "$git_status"
         "$nix_shell"
         "$cmd_duration"
-        "$\{custom.hostname\}"
         "$line_break"
         "$jobs"
         "$battery"
@@ -165,13 +164,6 @@
       character = {
         success_symbol = "[\\$](green)";
         error_symbol = "[\\$](bold red)";
-      };
-      custom.hostname = {
-        command = ''echo "$USER@$(hostname -f)"'';
-        symbol = "🌐";
-        format = "[\\[$symbol$output\\]]($style)";
-        style = "bold dimmed green";
-        when = ''test -n "$SSH_CONNECTION" || test -n "$SINGULARITY_NAME" || test -n "$APPTAINER_NAME"'';
       };
       directory = {
         substitutions = {
