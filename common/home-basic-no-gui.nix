@@ -65,20 +65,17 @@
       enable = true;
     };
   };
-  programs.bat = {
-    enable = true;
-  };
   programs.lsd = {
     enable = true;
     enableAliases = true;
   };
-  programs.yazi = {
-    enable = true;
-  };
+
+  programs.bat.enable = true;
+  programs.yazi.enable = true;
   programs.zoxide.enable = true;
-  programs.fzf = {
-    enable = true;
-  };
+  programs.fzf.enable = true;
+  programs.direnv.enable = true;
+
   programs.helix = {
     enable = true;
     package = helix.packages.${pkgs.system}.default;
@@ -118,9 +115,6 @@
         }
       ];
     };
-  };
-  programs.direnv = {
-    enable = true;
   };
   programs.zellij = {
     enable = true;
