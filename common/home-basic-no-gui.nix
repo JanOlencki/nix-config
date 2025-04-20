@@ -72,6 +72,7 @@
 
   programs.bat.enable = true;
   programs.yazi.enable = true;
+  programs.fd.enable = true;
   programs.zoxide.enable = true;
   programs.fzf.enable = true;
   programs.direnv.enable = true;
