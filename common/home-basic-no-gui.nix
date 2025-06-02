@@ -70,7 +70,6 @@
   };
   programs.lsd = {
     enable = true;
-    enableAliases = true;
   };
   programs.yazi = {
     enable = true;
