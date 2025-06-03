@@ -18,6 +18,7 @@
     du-dust
     ltex-ls
     tldr
+    sd
   ];
 
   programs.home-manager.enable = true;
@@ -74,6 +75,7 @@
   programs.fd.enable = true;
   programs.zoxide.enable = true;
   programs.fzf.enable = true;
+  programs.htop.enable = true;
   programs.direnv.enable = true;
 
   programs.helix = {
