@@ -19,6 +19,7 @@
     ltex-ls
     tldr
     sd
+    git-absorb
   ];
 
   programs.home-manager.enable = true;
