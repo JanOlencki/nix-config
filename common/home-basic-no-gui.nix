@@ -18,6 +18,7 @@
     du-dust
     ltex-ls
     tldr
+    sd
   ];
 
   programs.home-manager.enable = true;
@@ -119,6 +120,12 @@
     };
   };
   programs.direnv = {
+    enable = true;
+  };
+  programs.htop = {
+    enable = true;
+  };
+  programs.fd = {
     enable = true;
   };
   programs.zellij = {
