@@ -77,7 +77,7 @@
   programs.fd.enable = true;
   programs.zoxide.enable = true;
   programs.fzf.enable = true;
-  programs.htop.enable = true;
+  programs.btop.enable = true;
   programs.direnv.enable = true;
 
   programs.helix = {
