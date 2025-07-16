@@ -14,6 +14,7 @@
   home.packages = with pkgs; [
     nil
     nix-output-monitor
+    nh
     ranger
     edir
     du-dust
