@@ -7,6 +7,9 @@
     discord
     ripdrag
     wl-clipboard
+
+    ffmpeg
+    imagemagick
   ];
 
   programs.home-manager.enable = true;

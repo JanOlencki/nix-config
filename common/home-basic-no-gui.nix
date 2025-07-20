@@ -22,6 +22,8 @@
     tldr
     sd
     git-absorb
+    ouch
+    serpl
   ];
 
   programs.home-manager.enable = true;
@@ -69,17 +71,67 @@
       enable = true;
     };
   };
+
+  programs.lazygit = {
+    enable = true;
+  };
+
   programs.lsd = {
     enable = true;
   };
 
   programs.bat.enable = true;
-  programs.yazi.enable = true;
   programs.fd.enable = true;
+  programs.ripgrep.enable = true;
   programs.zoxide.enable = true;
   programs.fzf.enable = true;
   programs.btop.enable = true;
   programs.direnv.enable = true;
+
+  programs.yazi = {
+    enable = true;
+    initLua = ''
+      th.git = th.git or {}
+      th.git.modified_sign = "M";
+      th.git.added_sign = "A";
+      th.git.untracked_sign = "?";
+      th.git.ignored_sign = "I";
+      th.git.deleted_sign = "D";
+      th.git.updated_sign = "U";
+      require("git"):setup()
+    '';
+    plugins = {
+      git = pkgs.yaziPlugins.git;
+      outch = pkgs.yaziPlugins.ouch;
+      mediainfo = pkgs.yaziPlugins.mediainfo;
+      lazygit = pkgs.yaziPlugins.lazygit;
+    };
+    settings = {
+      "mgr" = {
+        prepend_keymap = [
+          {
+            on = ["g" "i"];
+            run = "plugin lazygit";
+            desc = "run lazygit";
+          }
+        ];
+      };
+      "plugin" = {
+        "prepend_fetchers" = [
+          {
+            id = "git";
+            name = "*";
+            run = "git";
+          }
+          {
+            id = "git";
+            name = "*/";
+            run = "git";
+          }
+        ];
+      };
+    };
+  };
 
   programs.helix = {
     enable = true;
@@ -95,6 +147,21 @@
         inline-diagnostics.cursor-line = "hint";
         end-of-line-diagnostics = "warning";
         inline-diagnostics.other-lines = "error";
+      };
+      keys.normal = {
+        space.l = [
+          ":new"
+          ":insert-output lazygit"
+          ":buffer-close!"
+          ":redraw"
+        ];
+        space.L = [
+          ":sh rm -f /tmp/unique-file"
+          ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file"
+          '':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty''
+          ":open %sh{cat /tmp/unique-file}"
+          ":redraw"
+        ];
       };
     };
     languages = {
@@ -117,6 +184,13 @@
           ];
           file-types = ["md" "txt"];
           scope = "text.markdown";
+        }
+        {
+          name = "nix";
+          formatter = {
+            command = "nix";
+            args = ["fmt"];
+          };
         }
       ];
     };
