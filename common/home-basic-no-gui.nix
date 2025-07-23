@@ -46,14 +46,16 @@
       core.editor = "${helix.packages.${pkgs.system}.default}/bin/hx";
       commit.verbose = true;
       commit.gpgsign = true;
-      pager.show = "${pkgs.bat}/bin/bat";
       diff.wsErrorHighlight = "all";
       diff.submodule = "log";
+      interactive.singleKey = true;
       push.autoSetupRemote = true;
       status.submoduleSummary = -1;
       submodule.fetchJobs = 0;
       rebase.missingCommitsCheck = "warn";
       alias = {
+        a = "add";
+        ap = "add -p";
         c = "commit";
         sw = "switch";
         st = "status -sb";
@@ -63,12 +65,16 @@
         llt = "log --graph --stat";
         last = "log -1 HEAD --stat";
         r = "rebase";
+        rc = "rebase --continue";
+        ra = "rebase --abort";
         rebi = "rebase -i --autostash --autosquash";
         puf = "push --force-with-lease";
       };
     };
-    difftastic = {
+    diff-so-fancy = {
       enable = true;
+      markEmptyLines = false;
+      stripLeadingSymbols = false;
     };
   };
 
