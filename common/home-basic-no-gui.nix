@@ -203,7 +203,14 @@
   };
   programs.zellij = {
     enable = true;
+    settings.keybinds.locked = {
+      "bind \"Alt h\"" = {MoveFocusOrTab = "Left";};
+      "bind \"Alt l\"" = {MoveFocusOrTab = "Right";};
+      "bind \"Alt j\"" = {MoveFocusOrTab = "Down";};
+      "bind \"Alt k\"" = {MoveFocusOrTab = "Up";};
+    };
   };
+
   programs.fish = {
     enable = true;
     shellAliases = {
