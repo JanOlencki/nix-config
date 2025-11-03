@@ -86,7 +86,13 @@
     enable = true;
   };
 
-  programs.bat.enable = true;
+  programs.bat = {
+    enable = true;
+    extraPackages = with pkgs.bat-extras; [
+      batman
+      batgrep
+    ];
+  };
   programs.fd.enable = true;
   programs.ripgrep.enable = true;
   programs.zoxide.enable = true;
