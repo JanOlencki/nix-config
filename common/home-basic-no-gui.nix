@@ -237,8 +237,12 @@
       fish_title = ''
         echo "$USER@$(hostname -f)"
       '';
+      ssh-list-add-keys = ''
+        echo "SSH Keys:"; ssh-add -l || ssh-add
+      '';
     };
   };
+
   programs.starship = {
     enable = true;
     settings = {
