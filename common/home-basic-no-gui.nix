@@ -17,7 +17,7 @@
     nh
     ranger
     edir
-    du-dust
+    dust
     ltex-ls
     tldr
     sd
