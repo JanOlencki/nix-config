@@ -80,9 +80,13 @@
             action = wezterm.action.DecreaseFontSize,
           }
         },
+        window_content_alignment = {
+          horizontal = 'Center',
+          vertical = 'Center',
+        },
         window_padding = {
-          left = "1cell",
-          right = "1cell",
+          left = "0",
+          right = "0",
           top = 0,
           bottom = 0,
         },
