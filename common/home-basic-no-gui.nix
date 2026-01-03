@@ -223,6 +223,12 @@
 
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      if set -q ZELLIJ
+      else
+        zellij
+      end
+    '';
     shellAliases = {
       g = "git";
       copy = "wl-copy";
