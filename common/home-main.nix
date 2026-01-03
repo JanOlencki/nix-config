@@ -10,6 +10,7 @@
 
     ffmpeg
     imagemagick
+    vlc
   ];
 
   programs.home-manager.enable = true;
@@ -107,4 +108,6 @@
       </match>
     </fontconfig>
   '';
+
+  programs.onlyoffice.enable = true;
 }

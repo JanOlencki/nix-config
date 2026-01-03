@@ -30,7 +30,11 @@
 
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
+    enableDefaultConfig = false;
+    matchBlocks."*" = {
+      forwardAgent = false;
+      addKeysToAgent = "yes";
+    };
   };
   services.ssh-agent.enable = true;
 
@@ -41,7 +45,7 @@
       ".envrc"
       ".helix"
     ];
-    extraConfig = {
+    settings = {
       gpg.format = "ssh";
       core.editor = "${helix.packages.${pkgs.system}.default}/bin/hx";
       commit.verbose = true;
@@ -71,8 +75,12 @@
         puf = "push --force-with-lease";
       };
     };
-    diff-so-fancy = {
-      enable = true;
+  };
+
+  programs.diff-so-fancy = {
+    enable = true;
+    enableGitIntegration = true;
+    settings = {
       markEmptyLines = false;
       stripLeadingSymbols = false;
     };
