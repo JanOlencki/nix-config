@@ -9,42 +9,64 @@
     helix.url = "github:helix-editor/helix";
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    stylix,
-    helix,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
 
-    homeConfigurationModules = {
-      basic-no-gui = import ./common/home-basic-no-gui.nix inputs;
-      main.imports = [
-        ./common/home-main.nix
-      ];
-    };
-    stylixModules = {
-      no-gui.imports = [./common/stylix-no-gui.nix];
-      fonts.imports = [./common/stylix-fonts.nix];
-    };
-  in {
-    formatter.${system} = pkgs.alejandra;
-    inherit homeConfigurationModules;
-    inherit stylixModules;
-    homeConfigurations."root" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [
-        stylix.homeManagerModules.stylix
-        stylixModules.no-gui
-        homeConfigurationModules.basic-no-gui
-        {
-          home.username = "root";
-          home.homeDirectory = "/root";
-          home.stateVersion = "24.05";
+      helixOverlay = {
+        nixpkgs.overlays = [
+          inputs.helix.overlays.helix
+        ];
+      };
+    in
+    {
+      formatter.${system} = pkgs.nixfmt-tree;
+
+      homeConfigurationModules = {
+        default.imports = [
+          ./modules/home
+        ];
+
+        non-graphical.imports = [
+          ./modules/home/non-graphical
+        ];
+      };
+
+      nixosModules = {
+        default = {
         }
-      ];
+        // helixOverlay;
+      };
+
+      stylixModules = {
+        default.imports = [
+          ./modules/stylix
+        ];
+        non-graphical.imports = [
+          ./modules/stylix/non-graphical.nix
+        ];
+      };
+
+      homeConfigurations."root" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          inputs.stylix.homeManagerModules.stylix
+          self.stylixModules.non-graphical
+          self.homeConfigurationModules.non-graphical
+          helixOverlay
+          {
+            home.username = "root";
+            home.homeDirectory = "/root";
+            home.stateVersion = "24.05";
+          }
+        ];
+      };
     };
-  };
 }

@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
+  imports = [
+    ./non-graphical.nix
+  ];
+
   stylix.fonts = {
     serif = {
       name = "Cantarell";
