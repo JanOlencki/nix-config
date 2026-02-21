@@ -41,6 +41,9 @@
 
       nixosModules = {
         default = {
+          imports = [
+            ./modules/nixos
+          ];
         }
         // helixOverlay;
       };
