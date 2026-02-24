@@ -7,6 +7,12 @@
 
     stylix.url = "github:danth/stylix/release-25.11";
     helix.url = "github:helix-editor/helix";
+
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+
+    niri-flake.url = "github:sodiboo/niri-flake";
+    niri-flake.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -32,6 +38,8 @@
       homeConfigurationModules = {
         default.imports = [
           ./modules/home
+          inputs.noctalia.homeModules.default
+          inputs.niri-flake.homeModules.niri
         ];
 
         non-graphical.imports = [
@@ -43,6 +51,7 @@
         default = {
           imports = [
             ./modules/nixos
+            inputs.noctalia.nixosModules.default
           ];
         }
         // helixOverlay;

@@ -2,6 +2,7 @@
 {
   imports = [
     ./non-graphical
+    ./niri
     ./terminal.nix
     ./browser.nix
     ./vscode.nix
