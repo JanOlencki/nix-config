@@ -16,6 +16,7 @@
     discord
     ripdrag
     wl-clipboard
+    waypipe
 
     ffmpeg
     imagemagick

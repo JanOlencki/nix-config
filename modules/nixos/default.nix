@@ -58,13 +58,6 @@ pkgs,
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  # Packages
-  virtualisation.podman.enable = true;
-  environment.systemPackages = with pkgs; [
-    git
-    waypipe
-  ];
-
   # Network
   networking.networkmanager.enable = true;
 
