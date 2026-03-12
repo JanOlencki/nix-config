@@ -21,6 +21,8 @@
     ffmpeg
     imagemagick
     vlc
+    kdePackages.dolphin
+    libappindicator-gtk3
   ];
 
   programs.onlyoffice.enable = true;
@@ -38,5 +40,4 @@
       </match>
     </fontconfig>
   '';
-
 }

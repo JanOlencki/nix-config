@@ -25,6 +25,8 @@ pkgs,
     xkb.variant = "";
   };
 
+  services.udisks2.enable = true;
+
   # Keyboard
   console.keyMap = "pl2";
   services.keyd = {

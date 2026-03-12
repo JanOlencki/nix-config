@@ -22,6 +22,16 @@
     inherit sessionVariables;
   };
 
+  services.udiskie = {
+    enable = true;
+    tray = "never";
+    settings = {
+      program_options = {
+        file_manager = "${pkgs.kdePackages.dolphin}/bin/dolphin";
+      };
+    };
+  };
+
   systemd.user.services.noctalia-shell.Service.Environment = [
     "NOCTALIA_SETTINGS_FALLBACK=%h/.config/noctalia/gui-settings.json"
     "GDK_BACKEND=wayland"
