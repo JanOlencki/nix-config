@@ -27,6 +27,8 @@ pkgs,
 
   services.udisks2.enable = true;
 
+  programs.yubikey-manager.enable = true;
+
   # Keyboard
   console.keyMap = "pl2";
   services.keyd = {
