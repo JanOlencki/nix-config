@@ -6,6 +6,15 @@
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 
+   services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+    };
+  };
+
   security.sudo.configFile = "Defaults pwfeedback";
   # Packages
   virtualisation.podman.enable = true;
