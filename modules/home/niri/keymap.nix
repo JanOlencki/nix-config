@@ -1,4 +1,5 @@
-{config,...}:{
+{ config, ... }:
+{
   programs.niri.settings.binds = {
     "Mod+Space" = {
       action.spawn = [
@@ -11,9 +12,19 @@
       hotkey-overlay.hidden = true;
     };
 
-    "Print".action.screenshot.show-pointer = false;
-    "Shift+Print".action.screenshot-window = { };
-    "Ctrl+Print".action.screenshot-screen.show-pointer = false;
+    "Mod+P" = {
+      action.screenshot.show-pointer = false;
+      hotkey-overlay.title = "Printscreen";
+
+    };
+    "Mod+Shift+P" = {
+      action.screenshot-window = { };
+      hotkey-overlay.title = "Printscreen window";
+    };
+    "Mod+Ctrl+P" = {
+      action.screenshot-screen.show-pointer = false;
+      hotkey-overlay.title = "Printscreen screen";
+    };
 
     "XF86AudioRaiseVolume".action.spawn = [
       "noctalia-shell"
@@ -35,6 +46,28 @@
       "call"
       "volume"
       "muteOutput"
+    ];
+
+    "XF86AudioPrev".action.spawn = [
+      "noctalia-shell"
+      "ipc"
+      "call"
+      "media"
+      "previous"
+    ];
+    "XF86AudioPlay".action.spawn = [
+      "noctalia-shell"
+      "ipc"
+      "call"
+      "media"
+      "playPause"
+    ];
+    "XF86AudioNext".action.spawn = [
+      "noctalia-shell"
+      "ipc"
+      "call"
+      "media"
+      "next"
     ];
 
     "XF86MonBrightnessUp".action.spawn = [
@@ -124,6 +157,7 @@
     };
     "Mod+Period" = {
       action = toggle-overview;
+      hotkey-overlay.title = "Overview";
     };
 
     "Mod+S".action = set-dynamic-cast-window;

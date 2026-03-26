@@ -22,6 +22,7 @@
     imagemagick
     vlc
     kdePackages.dolphin
+    kdePackages.okular
     libappindicator-gtk3
   ];
 
