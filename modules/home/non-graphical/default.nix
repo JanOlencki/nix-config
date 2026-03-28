@@ -30,6 +30,7 @@
     sd
     ouch
     serpl
+    python3Packages.ptpython
   ];
 
   programs.ssh = {

@@ -3,8 +3,12 @@
     enable = true;
     systemd.enable = true;
     settings = {
-      compactLockScreen = true;
-      showSessionButtonsOnLockScreen = false;
+      general = {
+        compactLockScreen = true;
+        showSessionButtonsOnLockScreen = false;
+        avatarImage = null;
+        enableLockScreenCountdown = false;
+      };
       location = {
         weatherEnabled = false;
         weatherShowEffects = false;
@@ -21,6 +25,15 @@
       };
       ui = {
         settingsPanelMode = "centered";
+      };
+      nightLight = {
+        enabled = true;
+      };
+      idle = {
+        enabled = true;
+        screenOffTimeout = 480;
+        lockTimeout = 510;
+        suspendTimeout = 1000;
       };
       controlCenter = {
         cards = [
