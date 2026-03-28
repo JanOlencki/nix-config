@@ -4,6 +4,11 @@
     ./non-graphical.nix
   ];
 
+  stylix.cursor = {
+    package = pkgs.kdePackages.breeze;
+    name = "breeze_cursors";
+    size = 24;
+  };
   stylix.fonts = {
     serif = {
       name = "Cantarell";

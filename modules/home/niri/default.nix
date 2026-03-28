@@ -2,7 +2,7 @@
   pkgs,
   ...
 }:
-  let
+let
   sessionVariables = {
     GDK_BACKEND = "wayland";
     QT_QPA_PLATFORM = "wayland";
@@ -13,7 +13,8 @@
     OZONE_PLATFORM = "wayland";
     NIXOS_OZONE_WL = "1";
   };
-    in {
+in
+{
   imports = [
     ./keymap.nix
     ./noctalia.nix
@@ -51,7 +52,6 @@
       xwayland-satellite.enable = true;
       xwayland-satellite.path = pkgs.lib.getExe pkgs.xwayland-satellite;
       prefer-no-csd = true;
-      cursor.size = 48;
       input = {
         focus-follows-mouse.enable = true;
         mouse.accel-profile = "flat";
@@ -77,6 +77,9 @@
           { proportion = 1. / 3.; }
         ];
       };
+      gestures = {
+        hot-corners.enable = false;
+      };
       window-rules = [
         {
           matches = [
@@ -85,6 +88,17 @@
             }
           ];
           open-maximized = true;
+          clip-to-geometry = true;
+        }
+
+        {
+          matches = [
+            {
+              app-id = "firefox";
+              title = "^Extension:.*";
+            }
+          ];
+          open-floating = true;
         }
       ];
       hotkey-overlay = {

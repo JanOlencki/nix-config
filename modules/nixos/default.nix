@@ -1,11 +1,12 @@
 {
-pkgs,
-...
-}:{
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./non-graphical.nix
   ];
-  
+
   # Desktop environment and display manager
   programs.niri.enable = true;
   services.xserver.enable = true;
@@ -15,9 +16,12 @@ pkgs,
   # Nix
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
-    extra-substituters = ["https://helix.cachix.org"];
-    extra-trusted-public-keys = ["helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    extra-substituters = [ "https://helix.cachix.org" ];
+    extra-trusted-public-keys = [ "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs=" ];
   };
 
   services.xserver = {

@@ -6,7 +6,7 @@
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 
-   services.openssh = {
+  services.openssh = {
     enable = true;
     settings = {
       PasswordAuthentication = false;
