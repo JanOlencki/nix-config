@@ -64,12 +64,12 @@ in
       layout = {
         default-column-width.proportion = 0.5;
         focus-ring.width = 2;
-        gaps = 4;
+        gaps = 8;
         struts = {
-          top = 0;
+          top = -5;
           left = 1;
           right = 1;
-          bottom = 1;
+          bottom = -4;
         };
         preset-column-widths = [
           { proportion = 0.5; }
@@ -95,7 +95,7 @@ in
           matches = [
             {
               app-id = "firefox";
-              title = "^Extension:.*";
+              title = "Extension:.*";
             }
           ];
           open-floating = true;
