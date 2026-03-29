@@ -8,6 +8,8 @@
         showSessionButtonsOnLockScreen = false;
         avatarImage = null;
         enableLockScreenCountdown = false;
+        clockStyle = "custom";
+        clockFormat = "HH:mm";
       };
       location = {
         weatherEnabled = false;
