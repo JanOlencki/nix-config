@@ -94,6 +94,15 @@ in
         {
           matches = [
             {
+              app-id = "wezterm";
+            }
+          ];
+          open-maximized = true;
+        }
+
+        {
+          matches = [
+            {
               app-id = "firefox";
               title = "Extension:.*";
             }
