@@ -18,7 +18,6 @@
       gpg.format = "ssh";
       core.editor = "${pkgs.helix}/bin/hx";
       commit.verbose = true;
-      commit.gpgsign = true;
       diff.wsErrorHighlight = "all";
       diff.submodule = "log";
       interactive.singleKey = true;

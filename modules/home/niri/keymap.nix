@@ -133,21 +133,27 @@
       action = close-window;
       hotkey-overlay.hidden = true;
     };
-    "Mod+WheelScrollDown" = {
+    "Mod+Shift+WheelScrollDown" = {
       action = focus-column-or-monitor-right;
       cooldown-ms = 150;
     };
-    "Mod+WheelScrollUp" = {
+    "Mod+Shift+WheelScrollUp" = {
       action = focus-column-or-monitor-left;
       cooldown-ms = 150;
     };
-    "Mod+Shift+WheelScrollDown" = {
+    "Mod+WheelScrollDown" = {
       action = focus-workspace-down;
       cooldown-ms = 150;
     };
-    "Mod+Shift+WheelScrollUp" = {
+    "Mod+WheelScrollUp" = {
       action = focus-workspace-up;
       cooldown-ms = 150;
+    };
+    "MouseForward" = {
+      action = focus-column-or-monitor-left;
+    };
+    "MouseBack" = {
+      action = focus-column-or-monitor-right;
     };
     "Mod+W" = {
       action = switch-preset-column-width;
