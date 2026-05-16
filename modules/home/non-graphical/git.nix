@@ -15,7 +15,6 @@
       ".helix"
     ];
     settings = {
-      gpg.format = "ssh";
       core.editor = "${pkgs.helix}/bin/hx";
       commit.verbose = true;
       diff.wsErrorHighlight = "all";
@@ -35,10 +34,13 @@
         ll = "log --stat";
         lt = "log --graph --oneline";
         llt = "log --graph --stat";
-        last = "log -1 HEAD --stat";
+        l = "log -1 HEAD --stat";
         r = "rebase";
         rc = "rebase --continue";
         ra = "rebase --abort";
+        cp = "rebase";
+        cpc = "rebase --continue";
+        cpa = "rebase --abort";
         rebi = "rebase -i --autostash --autosquash";
         puf = "push --force-with-lease";
       };

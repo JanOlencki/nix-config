@@ -30,6 +30,7 @@
     sd
     ouch
     serpl
+    devenv
     python3Packages.ptpython
   ];
 
@@ -56,6 +57,7 @@
   };
   programs.fd.enable = true;
   programs.ripgrep.enable = true;
+  programs.ripgrep-all.enable = true;
   programs.zoxide.enable = true;
   programs.fzf.enable = true;
   programs.btop.enable = true;
