@@ -24,6 +24,7 @@
     kdePackages.dolphin
     kdePackages.okular
     libappindicator-gtk3
+    gradia
   ];
 
   programs.onlyoffice.enable = true;

@@ -17,6 +17,7 @@
         inline-diagnostics.cursor-line = "hint";
         end-of-line-diagnostics = "warning";
         inline-diagnostics.other-lines = "error";
+        clipboard-provider = "wayland";
       };
       keys.normal = {
         space.l = [
