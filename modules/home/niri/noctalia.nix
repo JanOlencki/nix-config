@@ -1,7 +1,6 @@
 {
   programs.noctalia-shell = {
     enable = true;
-    systemd.enable = true;
     settings = {
       general = {
         compactLockScreen = true;

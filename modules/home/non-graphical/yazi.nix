@@ -15,6 +15,7 @@
       th.git.updated_sign = "U";
       require("git"):setup()
     '';
+    shellWrapperName = "y";
     plugins = {
       git = pkgs.yaziPlugins.git;
       outch = pkgs.yaziPlugins.ouch;
@@ -32,19 +33,25 @@
             run = "plugin lazygit";
             desc = "run lazygit";
           }
+          {
+            on = [
+              "?"
+            ];
+            run = "help";
+          }
         ];
       };
       "plugin" = {
         "prepend_fetchers" = [
           {
-            id = "git";
-            name = "*";
+            url = "*";
             run = "git";
+            group = "git";
           }
           {
-            id = "git";
-            name = "*/";
+            url = "*/";
             run = "git";
+            group = "git";
           }
         ];
       };

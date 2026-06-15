@@ -1,24 +1,28 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    niri-flake.url = "github:sodiboo/niri-flake";
-    niri-flake.inputs.nixpkgs.follows = "nixpkgs";
-
-    stylix.url = "github:danth/stylix/release-25.11";
-    helix.url = "github:helix-editor/helix";
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.noctalia-qs.follows = "noctalia-qs";
     };
 
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs";
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix = {
+      url = "github:danth/stylix/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -59,7 +63,6 @@
         default = {
           imports = [
             ./modules/nixos
-            inputs.noctalia.nixosModules.default
           ];
         }
         // helixOverlay;

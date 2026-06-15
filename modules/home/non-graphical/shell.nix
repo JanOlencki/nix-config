@@ -22,7 +22,7 @@
     functions = {
       fish_greeting = ''
         date +"%A, %d %B %Y, %r"
-        echo "Host: $(domainname -af)"
+        echo "Host: $(hostname -f)"
         echo "User: $USER"
       '';
       fish_title = ''

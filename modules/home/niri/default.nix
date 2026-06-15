@@ -33,18 +33,6 @@ in
     };
   };
 
-  systemd.user.services.noctalia-shell.Service.Environment = [
-    "NOCTALIA_SETTINGS_FALLBACK=%h/.config/noctalia/gui-settings.json"
-    "GDK_BACKEND=wayland"
-    "QT_QPA_PLATFORM=wayland"
-    "QT_STYLE_OVERRIDE=kvantum"
-    "SDL_VIDEODRIVER=wayland"
-    "MOZ_ENABLE_WAYLAND=1"
-    "ELECTRON_OZONE_PLATFORM_HINT=wayland"
-    "OZONE_PLATFORM=wayland"
-    "NIXOS_OZONE_WL=1"
-  ];
-
   programs.niri = {
     enable = true;
     package = pkgs.niri;
@@ -52,6 +40,13 @@ in
       xwayland-satellite.enable = true;
       xwayland-satellite.path = pkgs.lib.getExe pkgs.xwayland-satellite;
       prefer-no-csd = true;
+      spawn-at-startup = [
+        {
+          command = [
+            "noctalia-shell"
+          ];
+        }
+      ];
       input = {
         focus-follows-mouse.enable = true;
         mouse.accel-profile = "flat";
@@ -64,12 +59,12 @@ in
       layout = {
         default-column-width.proportion = 0.5;
         focus-ring.width = 2;
-        gaps = 8;
+        gaps = 2;
         struts = {
-          top = -5;
-          left = 1;
-          right = 1;
-          bottom = -4;
+          top = 0;
+          left = 0;
+          right = 0;
+          bottom = 1;
         };
         preset-column-widths = [
           { proportion = 0.5; }
