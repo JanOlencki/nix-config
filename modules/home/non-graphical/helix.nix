@@ -20,13 +20,13 @@
         clipboard-provider = "wayland";
       };
       keys.normal = {
-        space.l = [
+        space.L = [
           ":new"
           ":insert-output lazygit"
           ":buffer-close!"
           ":redraw"
         ];
-        space.L = [
+        space.l = [
           ":sh rm -f /tmp/unique-file"
           ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file"
           '':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty''
