@@ -22,6 +22,7 @@
     nil
     nix-output-monitor
     nh
+    nix-init
     ranger
     edir
     dust
@@ -31,6 +32,7 @@
     ouch
     serpl
     devenv
+    cpx
     python3Packages.ptpython
   ];
 
@@ -63,5 +65,8 @@
   programs.zoxide.enable = true;
   programs.fzf.enable = true;
   programs.btop.enable = true;
-  programs.direnv.enable = true;
+  programs.direnv = {
+     enable = true;
+     nix-direnv.enable = true;
+  };
 }

@@ -161,7 +161,7 @@
     "Mod+M" = {
       action = maximize-column;
     };
-    "Mod+Tab" = {
+    "Mod+A" = {
       action = toggle-overview;
       hotkey-overlay.title = "Overview";
     };
