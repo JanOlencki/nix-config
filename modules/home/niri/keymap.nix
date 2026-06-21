@@ -141,6 +141,14 @@
       action = focus-column-or-monitor-left;
       cooldown-ms = 150;
     };
+    "Mod+Alt+WheelScrollDown" = {
+      action = focus-column-or-monitor-right;
+      cooldown-ms = 150;
+    };
+    "Mod+Alt+WheelScrollUp" = {
+      action = focus-column-or-monitor-left;
+      cooldown-ms = 150;
+    };
     "Mod+WheelScrollDown" = {
       action = focus-workspace-down;
       cooldown-ms = 150;
