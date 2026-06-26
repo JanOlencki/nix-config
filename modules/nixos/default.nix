@@ -26,6 +26,8 @@
     ];
   };
 
+  documentation.dev.enable = true;
+
   services.xserver = {
     xkb.layout = "pl";
     xkb.variant = "";
@@ -56,6 +58,8 @@
     exfat
     usbutils
     vial
+    man-pages
+    man-pages-posix
   ];
 
   services.udev.packages = [
