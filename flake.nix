@@ -17,10 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     noctalia = {
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,12 +33,6 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-
-      helixOverlay = {
-        nixpkgs.overlays = [
-          inputs.helix.overlays.helix
-        ];
-      };
     in
     {
       formatter.${system} = pkgs.nixfmt-tree;
@@ -64,8 +54,7 @@
           imports = [
             ./modules/nixos
           ];
-        }
-        // helixOverlay;
+        };
       };
 
       stylixModules = {
@@ -83,7 +72,6 @@
           inputs.stylix.homeManagerModules.stylix
           self.stylixModules.non-graphical
           self.homeConfigurationModules.non-graphical
-          helixOverlay
           {
             home.username = "root";
             home.homeDirectory = "/root";
