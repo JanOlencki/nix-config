@@ -13,6 +13,7 @@
     fuse-overlayfs
     gocryptfs
     spotify
+    pear-desktop
     discord
     ripdrag
     wl-clipboard
