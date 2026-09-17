@@ -4,6 +4,7 @@
     settings = {
       show_startup_tips = false;
       advanced_mouse_actions = false;
+      pane_frames = false;
     };
     extraConfig = ''
       keybinds {
