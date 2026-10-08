@@ -5,6 +5,7 @@
 {
   programs.helix = {
     enable = true;
+    package = pkgs.steelix;
     defaultEditor = true;
 
     settings = {
